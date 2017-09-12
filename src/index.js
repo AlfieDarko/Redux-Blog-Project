@@ -9,6 +9,7 @@ import reducers from './reducers';
 import PostsIndex from './components/post_index';
 import PostsNew from './components/posts_new'
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+import PostsShow from './components/posts_show';
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
@@ -19,7 +20,11 @@ ReactDOM.render(
           //Most specific route at top of list
           <Route path="/posts/new" component={PostsNew} />
 
+          <Route path="/posts/:id" component={PostsShow} />
+
           <Route path="/" component={PostsIndex} />
+
+
         </Switch>
       </div>
     </BrowserRouter>
